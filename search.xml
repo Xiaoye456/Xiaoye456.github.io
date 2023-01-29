@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>前端学习笔记</title>
+      <link href="/2023/01/29/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/01/29/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前端学习笔记"><a href="#前端学习笔记" class="headerlink" title="前端学习笔记"></a>前端学习笔记</h2><h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>dom是文档对象模型，核心对象是document</p><p>文档：一个页面就是一个文档，DOM中使用document表示</p><p>元素：页面中的所有标签都是元素，DOM中使用element表示</p><p>节点：网页总的所有内容都是节点（标签、属性等），DOM中使用node表示</p><h5 id="获取元素：getElementById（）"><a href="#获取元素：getElementById（）" class="headerlink" title="获取元素：getElementById（）"></a>获取元素：getElementById（）</h5><p>根据ID获取</p><p>script标签要写在标签的下面，因为我们文档页面从上往下加载，所以得先有标签</p><h4 id="操作元素innerHTML和innerText"><a href="#操作元素innerHTML和innerText" class="headerlink" title="操作元素innerHTML和innerText"></a>操作元素innerHTML和innerText</h4><p>innerText不识别html标签</p><p>innerHTML识别html标签，常用innerHTML</p><p>var nowtime &#x3D; +new Date();&#x2F;&#x2F;得到的就是当下的时间距离1970年1月1日0时0分0秒的毫秒数</p><p>var inputTime &#x3D; +new Date(time); &#x2F;&#x2F; 放回的是用户输入时间总的毫秒数</p><h4 id="DOM重点核心"><a href="#DOM重点核心" class="headerlink" title="DOM重点核心"></a>DOM重点核心</h4><p>主要对元素的操作，主要有增删改查（CRUD）、创建元素、元素属性操作、事件操作。</p><h4 id="常用键盘事件"><a href="#常用键盘事件" class="headerlink" title="常用键盘事件"></a>常用键盘事件</h4><p>onkeyup keyup 按键弹起的时候触发 </p><p>onkeydown 按键按下的时候触发  能识别功能键 比如 ctrl shift 左右箭头啊</p><p>onkeypress 按键按下的时候触发  不能识别功能键 比如 ctrl shift 左右箭头啊</p><p>三个事件的执行顺序  keydown – keypress – keyup</p><h4 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h4><p>BOM即浏览器对象模型，提供了独立于内容而与浏览器窗口进行交互的对象，其核心对象是window</p><p>width：auto与100%</p><p>当width设置为100%，会等于父元素的width</p><p>当width设置为auto，会根据元素本身的height这个属性决定。简单的说按照height的缩放比例来设置</p><h4 id="元素显示模式"><a href="#元素显示模式" class="headerlink" title="元素显示模式"></a>元素显示模式</h4><ul><li><p>块级元素</p><ol><li>独占一行</li><li>宽度默认是父元素的宽度</li><li>可以设置宽高</li><li>例如div、p、h系列、li、ul、dl、dt、dd、form、header、nav、footer等</li></ol></li><li><p>行内元素</p><ol><li>不换行，一行可以显示多个</li><li>宽度和高度默认由内容撑开</li><li>设置宽高不生效</li><li>例如span、a、b、u、i、strong、ins、em、del等</li></ol></li><li><p>行内块元素</p><ol><li>一行可以显示多个</li><li>可以设置宽高</li><li>例如input、textarea、button、select</li><li>特殊清空：img标签由行内块元素特点，但是chrome调试工具显示为行内标签</li></ol></li><li><p>元素显示模式转换</p><ol><li>目的：改变元素默认的显示特点，让元素符合布局要求</li></ol></li></ul><p>扩展1：HTML嵌套规范注意点</p><ol><li><p>块级元素一般作为大容器，可以嵌套文本。块级元素。行内元素、行内块元素等等</p><ul><li>但是p标签中不要嵌套div、p、h等块级元素</li></ul></li><li><p>a标签内部可以嵌套任意元素</p><ul><li>但是a标签不能嵌套a标签</li></ul></li></ol><h3 id="CSS三大特性"><a href="#CSS三大特性" class="headerlink" title="CSS三大特性"></a>CSS三大特性</h3><h6 id="CSS继承性"><a href="#CSS继承性" class="headerlink" title="CSS继承性"></a>CSS继承性</h6><p>一般子元素会继承父元素里的样式，关于文字的样式会继承，但是有些元素会有默认的文字样式所以就没有继承</p><h6 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h6><h6 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h6><p>绝对定位的盒子使用margin不能居中，可以用left百分比写法，再加上margin，或者用transform：translate(-50%，-50%)位移的写法，这样写的好处就是可以自己计算宽高的一半</p><p>相对定位会使标签元素脱标，并且原有位置依然被占用</p><p>定位习惯子绝夫相的写法</p><h5 id="基线对齐"><a href="#基线对齐" class="headerlink" title="基线对齐"></a>基线对齐</h5><p>属性名：vertical-align，默认文字按基线对齐，浏览器默认将行内块和行内标签认定为文字，改变显示模式也可以解决基线问题</p><p>一般解决文字水平方向对不齐的情况，想居中对齐用middle，顶对齐用top，底对齐用bottom</p><h5 id="overflow：hidden"><a href="#overflow：hidden" class="headerlink" title="overflow：hidden"></a>overflow：hidden</h5><p>隐藏盒子溢出部分</p><h5 id="visibility-hidden"><a href="#visibility-hidden" class="headerlink" title="visibility:hidden"></a>visibility:hidden</h5><p>占位隐藏</p><h5 id="display：none"><a href="#display：none" class="headerlink" title="display：none"></a>display：none</h5><p>不占位隐藏</p><p>常用于子菜单显示，不占位隐藏较为常用</p><h5 id="（扩展），透明度"><a href="#（扩展），透明度" class="headerlink" title="（扩展），透明度"></a>（扩展），透明度</h5><ul><li>opacity</li><li>会使内容都变透明，纯写html、css不会用到，一般用rgba(a,b,c,0.5)这种，不会使内容变透明</li></ul><h5 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h5><ul><li>减少服务器发送次数，减轻服务器压力，提高页面加载速度</li><li>精灵图就是将多张小图片合并成一张大图片，这张大图片就叫做精灵图</li><li></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
