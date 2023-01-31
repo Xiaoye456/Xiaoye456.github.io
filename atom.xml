@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-01-29T03:06:08.072Z</updated>
+  <updated>2023-01-31T15:08:47.458Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js进阶.md</title>
+    <link href="http://example.com/2023/01/31/js%E8%BF%9B%E9%98%B6/"/>
+    <id>http://example.com/2023/01/31/js%E8%BF%9B%E9%98%B6/</id>
+    <published>2023-01-31T15:07:13.000Z</published>
+    <updated>2023-01-31T15:08:47.458Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="动态参数"><a href="#动态参数" class="headerlink" title="动态参数"></a>动态参数</h3><p><em>一般不确定实参多少个的情况下，可以把实参都接收过来</em></p><ul><li><p>arguments：是在函数内部存的动态参数变量，是一个伪数组，内部包含了调用函数时传入的所有实参</p></li><li><p>伪数组可以遍历，因此可以遍历获取所有实参</p></li><li><p>伪数组是不能用数组的方法的</p></li><li><h5 id="ES6推出了新语法，剩余参数"><a href="#ES6推出了新语法，剩余参数" class="headerlink" title="ES6推出了新语法，剩余参数"></a>ES6推出了新语法，剩余参数</h5><ul><li><h5 id="在形参前写…，如function-getNum（…a）-console-log-a"><a href="#在形参前写…，如function-getNum（…a）-console-log-a" class="headerlink" title="在形参前写…，如function getNum（…a）{console.log(a)},"></a>在形参前写…，如function getNum（…a）{console.log(a)},</h5></li><li><p>取过来的参数会变成数组，就可以使用数组的方法</p></li></ul></li><li><h5 id="数组一般用forEach（callback）方法遍历，不需要用for循环"><a href="#数组一般用forEach（callback）方法遍历，不需要用for循环" class="headerlink" title="数组一般用forEach（callback）方法遍历，不需要用for循环"></a>数组一般用forEach（callback）方法遍历，不需要用for循环</h5></li><li><h4 id="开发一般用剩余参数"><a href="#开发一般用剩余参数" class="headerlink" title="开发一般用剩余参数"></a>开发一般用剩余参数</h4></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;动态参数&quot;&gt;&lt;a href=&quot;#动态参数&quot; class=&quot;headerlink&quot; title=&quot;动态参数&quot;&gt;&lt;/a&gt;动态参数&lt;/h3&gt;&lt;p&gt;&lt;em&gt;一般不确定实参多少个的情况下，可以把实参都接收过来&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;arguments：是</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>前端学习笔记</title>

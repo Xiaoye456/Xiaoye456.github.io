@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>js进阶.md</title>
+      <link href="/2023/01/31/js%E8%BF%9B%E9%98%B6/"/>
+      <url>/2023/01/31/js%E8%BF%9B%E9%98%B6/</url>
+      
+        <content type="html"><![CDATA[<h3 id="动态参数"><a href="#动态参数" class="headerlink" title="动态参数"></a>动态参数</h3><p><em>一般不确定实参多少个的情况下，可以把实参都接收过来</em></p><ul><li><p>arguments：是在函数内部存的动态参数变量，是一个伪数组，内部包含了调用函数时传入的所有实参</p></li><li><p>伪数组可以遍历，因此可以遍历获取所有实参</p></li><li><p>伪数组是不能用数组的方法的</p></li><li><h5 id="ES6推出了新语法，剩余参数"><a href="#ES6推出了新语法，剩余参数" class="headerlink" title="ES6推出了新语法，剩余参数"></a>ES6推出了新语法，剩余参数</h5><ul><li><h5 id="在形参前写…，如function-getNum（…a）-console-log-a"><a href="#在形参前写…，如function-getNum（…a）-console-log-a" class="headerlink" title="在形参前写…，如function getNum（…a）{console.log(a)},"></a>在形参前写…，如function getNum（…a）{console.log(a)},</h5></li><li><p>取过来的参数会变成数组，就可以使用数组的方法</p></li></ul></li><li><h5 id="数组一般用forEach（callback）方法遍历，不需要用for循环"><a href="#数组一般用forEach（callback）方法遍历，不需要用for循环" class="headerlink" title="数组一般用forEach（callback）方法遍历，不需要用for循环"></a>数组一般用forEach（callback）方法遍历，不需要用for循环</h5></li><li><h4 id="开发一般用剩余参数"><a href="#开发一般用剩余参数" class="headerlink" title="开发一般用剩余参数"></a>开发一般用剩余参数</h4></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>前端学习笔记</title>
       <link href="/2023/01/29/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/2023/01/29/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
