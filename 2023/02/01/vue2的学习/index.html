@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>vue2的学习 | Xiaoye11的个人博客</title><meta name="author" content="Xiaoye"><meta name="copyright" content="Xiaoye"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="模板语法模板渲染语法中，除了支持绑定简单的数据值之外，还支持javascript表达式的运算 vue的两个特性 数据驱动视图 双向数据绑定  条件渲染列表渲染事件处理表单输入绑定组件的应用 组件的导入 props组件交互 自定义事件组件交互  组件的生命周期Axios网络请求 Axios网络请求封装 网络请求跨域解决方案  Vue引入路由配置vue核心原理 MVVM是vue实现数据驱动视图和双向数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue2的学习">
+<meta property="og:url" content="http://example.com/2023/02/01/vue2%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Xiaoye11的个人博客">
+<meta property="og:description" content="模板语法模板渲染语法中，除了支持绑定简单的数据值之外，还支持javascript表达式的运算 vue的两个特性 数据驱动视图 双向数据绑定  条件渲染列表渲染事件处理表单输入绑定组件的应用 组件的导入 props组件交互 自定义事件组件交互  组件的生命周期Axios网络请求 Axios网络请求封装 网络请求跨域解决方案  Vue引入路由配置vue核心原理 MVVM是vue实现数据驱动视图和双向数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-02-01T15:20:47.000Z">
+<meta property="article:modified_time" content="2023-02-24T12:03:00.871Z">
+<meta property="article:author" content="Xiaoye">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/02/01/vue2%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vue2的学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-24 20:03:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Xiaoye11的个人博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Xiaoye11的个人博客"><span class="site-name">Xiaoye11的个人博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vue2的学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-01T15:20:47.000Z" title="发表于 2023-02-01 23:20:47">2023-02-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-24T12:03:00.871Z" title="更新于 2023-02-24 20:03:00">2023-02-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vue2的学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h3><p>模板渲染语法中，除了支持绑定简单的数据值之外，还支持javascript表达式的运算</p>
+<h3 id="vue的两个特性"><a href="#vue的两个特性" class="headerlink" title="vue的两个特性"></a>vue的两个特性</h3><ul>
+<li>数据驱动视图</li>
+<li>双向数据绑定</li>
+</ul>
+<h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><h3 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h3><h3 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h3><h3 id="表单输入绑定"><a href="#表单输入绑定" class="headerlink" title="表单输入绑定"></a>表单输入绑定</h3><h3 id="组件的应用"><a href="#组件的应用" class="headerlink" title="组件的应用"></a>组件的应用</h3><ul>
+<li><h4 id="组件的导入"><a href="#组件的导入" class="headerlink" title="组件的导入"></a>组件的导入</h4></li>
+<li><h4 id="props组件交互"><a href="#props组件交互" class="headerlink" title="props组件交互"></a>props组件交互</h4></li>
+<li><h4 id="自定义事件组件交互"><a href="#自定义事件组件交互" class="headerlink" title="自定义事件组件交互"></a>自定义事件组件交互</h4></li>
+</ul>
+<h3 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h3><h3 id="Axios网络请求"><a href="#Axios网络请求" class="headerlink" title="Axios网络请求"></a>Axios网络请求</h3><ul>
+<li><h4 id="Axios网络请求封装"><a href="#Axios网络请求封装" class="headerlink" title="Axios网络请求封装"></a>Axios网络请求封装</h4></li>
+<li><h4 id="网络请求跨域解决方案"><a href="#网络请求跨域解决方案" class="headerlink" title="网络请求跨域解决方案"></a>网络请求跨域解决方案</h4></li>
+</ul>
+<h3 id="Vue引入路由配置"><a href="#Vue引入路由配置" class="headerlink" title="Vue引入路由配置"></a>Vue引入路由配置</h3><h3 id="vue核心原理"><a href="#vue核心原理" class="headerlink" title="vue核心原理"></a>vue核心原理</h3><blockquote>
+<p>MVVM是vue实现数据驱动视图和双向数据绑定的核心原理。MVVM指的是Model、View和ViewModel。</p>
+</blockquote>
+<h3 id="vue的基本使用"><a href="#vue的基本使用" class="headerlink" title="vue的基本使用"></a>vue的基本使用</h3><p>先声明一个将要被vue所控制的dom区域，然后创建vm实列对象（vue实例对象）</p>
+<ul>
+<li>el 属性是固定的写法，表示当前 vm 实例要控制页面上的哪个区域，接收的值是一个选择器</li>
+<li>data属性存储的是数据</li>
+</ul>
+<h3 id="vue指令与过滤器"><a href="#vue指令与过滤器" class="headerlink" title="vue指令与过滤器"></a>vue指令与过滤器</h3><blockquote>
+<p>指令是vue为开发者提供的模板语法，用于辅助开发者渲染DOM元素的文本内容。</p>
+</blockquote>
+<ol>
+<li>常用的内容渲染指令有3个：</li>
+</ol>
+<ul>
+<li><p>v-text 指令的缺点：会覆盖元素内部原有的内容（所以实际开发中用的不多），一般开发中用双括号语法</p>
+</li>
+<li><p>双括号语法专门用来解决v-text会覆盖默认文本内容的问题</p>
+</li>
+<li><p>v-html指令：可以把包含html标签的字符串渲染成真正的html内容</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>属性绑定指令</p>
+<p>注意：双括号语法只能用在内容节点中，不能用在元素节点中</p>
+<ul>
+<li>v-band：（vue 规定 v-bind: 指令可以简写为 :），一般用于为元素的属性动态绑定值</li>
+</ul>
+</li>
+<li><p>事件绑定指令</p>
+<ul>
+<li><p>v-on：，用来辅助开发者为DOM元素绑定事件监听，可以简写成@，一般绑定的事件处理函数放在methods里，与data平级</p>
+</li>
+<li><p>在 methods 处理函数中，this 就是 new 出来的 vm 实例对象</p>
+</li>
+<li><p>vue 提供了内置变量，名字叫做 $event，它就是原生 DOM 的事件对象 e,通过事件对象e的target属性可以更改元素的样式</p>
+</li>
+<li><p>事件修饰符</p>
+<ul>
+<li>与原生的阻止事件默认行为函数preventDefault（）作用一样</li>
+<li>prevent</li>
+</ul>
+</li>
+<li><p>按键修饰符</p>
+<ul>
+<li>esc，指按esc键会触发</li>
+<li>enter，按回车键触发</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>双向绑定事件</p>
+<ul>
+<li><p>v-model</p>
+</li>
+<li><p>通常与表单使用,不用操作dom，自动获取表单数据</p>
+<ul>
+<li>例如input、textrea、select等</li>
+</ul>
+</li>
+<li><p>v-model修饰符</p>
+<ul>
+<li>number   将用户输入值转为数值类型</li>
+<li>trim     自动过滤用户输入的首尾空白字符</li>
+<li>lazy  不希望实时同步数据，想在改变之后同步数据，可以用lazy</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>条件渲染</p>
+<ul>
+<li>v-if </li>
+<li>v-show <ul>
+<li>两者隐藏的方式不同，v-if隐藏会被动态清除元素，v-show只是用样式display隐藏了，如果要频繁的切换元素的显示状态，用v-show性能更好 </li>
+<li>如果刚进入页面的时候，某些元素默认不需要被展示，而且后期这个元素很可能也不需要被展示处理，此时v-if性能更好</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>列表渲染</p>
+<ul>
+<li>v-for，需要用item in items形式的特色语法，还支持一个可选的第二个参数，即当前项的索引。语法为（item，index）in items。只要用到了 v-for 指令，那么一定要绑定一个 :key 属性<ul>
+<li>items是带循环的数组</li>
+<li>item是数组的元素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>过滤器</p>
+<ul>
+<li><p>在filters节点中定义</p>
+</li>
+<li><p>过滤器本质上是函数</p>
+</li>
+<li><p>过滤器函数中，一定要有return值</p>
+</li>
+<li><p>在过滤器的形参中，就可以获取到“管道符”前面待处理的那个值</p>
+</li>
+<li><p>全局过滤器 - 独立于每个vm实例之外</p>
+<ul>
+<li><p>Vue.filter()方法有两个参数</p>
+<ul>
+<li>第一个参数，是全局过滤器的“名字”</li>
+<li>第二个参数，是全局过滤器的“处理函数”</li>
+</ul>
+</li>
+<li><p>一般开发中基本是用全局过滤器</p>
+</li>
+<li><p>vue3中已经剔除了过滤器功能</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h3><ul>
+<li>在watch节点中定义</li>
+<li>要监视哪个数据的变化，就把数据名作为方法名即可</li>
+<li>usename（newVal，oldVal）</li>
+<li>监听器的格式<ul>
+<li>方法格式的监听器<ul>
+<li>缺点1：无法在进入页面的时候，自动触发</li>
+<li>缺点2：如果监听的是一个对象，如果对象中的属性发送了变化，不会触发监听器</li>
+</ul>
+</li>
+<li>对象格式的监听器<ul>
+<li>好处：可以通过immediate选项，让监听器自动触发</li>
+<li>要开启deep选项，就可以监听对象中的任何一个属性变化了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h4><ul>
+<li>计算属性要定义在comuted节点下</li>
+<li>定义时要定义成方法。</li>
+<li>用的时候当属性使用</li>
+</ul>
+<h3 id="Vue-cli的使用"><a href="#Vue-cli的使用" class="headerlink" title="Vue-cli的使用"></a>Vue-cli的使用</h3><ol>
+<li><p>assert 文件夹: 存放项目中用到的静态资源文件。例如：css样式表、图片资源</p>
+</li>
+<li><p>compoment文件夹： 程序员封装的、可复用的组件。都要放到compoments目录下</p>
+</li>
+<li><p>main.js 是项目的入口文件。整个项目的运行，要先执行main.js</p>
+</li>
+<li><p>App.vue 是项目的根组件</p>
+</li>
+</ol>
+<p>在工程化中，vue要做的事很简单，就是把App.vue渲染到index.html页面中</p>
+<p>template代表模板结构</p>
+<ol>
+<li>App.vue用来编写待渲染的模板结构</li>
+<li>index.html中需要预留一个el区域</li>
+<li>main.js把App.vue渲染到了index.html所预留的区域中</li>
+</ol>
+<h4 id="Vue组件"><a href="#Vue组件" class="headerlink" title="Vue组件"></a>Vue组件</h4><p>.vue后缀名的都是组件</p>
+<p>​	vue组件的三个组成部分</p>
+<ul>
+<li><p>template</p>
+<p>声明vue的ui结构的</p>
+</li>
+<li><p>style</p>
+<p>组件的样式</p>
+</li>
+<li><p>script</p>
+<p>组件的JavaScript行为</p>
+<p>（export  default是固定语法，默认导出）</p>
+<p>.vue组件中的data不能像之前一样，不能指向对象</p>
+<p>组件中的data必须是一个函数</p>
+<p>其中，每个组件中必须包含template模板结构。而script行为和style样式是可选的</p>
+</li>
+</ul>
+<p>template中只能有一个根元素（一个div）</p>
+<p>使用组件的三个步骤</p>
+<ol>
+<li>使用import语法导入需要的组件</li>
+<li>使用components节点注册组件</li>
+<li>以标签形式使用刚才注册的组件</li>
+</ol>
+<h3 id="VueComponent"><a href="#VueComponent" class="headerlink" title="VueComponent"></a>VueComponent</h3><ol>
+<li>vue组件可以使用全局组件</li>
+</ol>
+<p>​	比如在main.js中使用import语法导入需要全局的组件，然后使用Vue的component方法注册。</p>
+<ol start="2">
+<li><p>props自定义属性</p>
+<p>props是自定义属性，运行使用者通过自定义属性，为当前组件指定初始值，放在data中。如：props：[“属性名”]</p>
+<p>自定义属性名要合法</p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Xiaoye</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/02/01/vue2%E7%9A%84%E5%AD%A6%E4%B9%A0/">http://example.com/2023/02/01/vue2%E7%9A%84%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Xiaoye11的个人博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/01/31/js%E8%BF%9B%E9%98%B6/" title="js进阶(ES6新语法)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">js进阶(ES6新语法)</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xiaoye</div><div class="author-info__description">致力于分享各种常见的配置错误</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">模板语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">vue的两个特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93"><span class="toc-number">3.</span> <span class="toc-text">条件渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93"><span class="toc-number">4.</span> <span class="toc-text">列表渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">事件处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5%E7%BB%91%E5%AE%9A"><span class="toc-number">6.</span> <span class="toc-text">表单输入绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">7.</span> <span class="toc-text">组件的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%9A%84%E5%AF%BC%E5%85%A5"><span class="toc-number">7.1.</span> <span class="toc-text">组件的导入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#props%E7%BB%84%E4%BB%B6%E4%BA%A4%E4%BA%92"><span class="toc-number">7.2.</span> <span class="toc-text">props组件交互</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6%E7%BB%84%E4%BB%B6%E4%BA%A4%E4%BA%92"><span class="toc-number">7.3.</span> <span class="toc-text">自定义事件组件交互</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">8.</span> <span class="toc-text">组件的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Axios%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82"><span class="toc-number">9.</span> <span class="toc-text">Axios网络请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Axios%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%B0%81%E8%A3%85"><span class="toc-number">9.1.</span> <span class="toc-text">Axios网络请求封装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">9.2.</span> <span class="toc-text">网络请求跨域解决方案</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue%E5%BC%95%E5%85%A5%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE"><span class="toc-number">10.</span> <span class="toc-text">Vue引入路由配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="toc-number">11.</span> <span class="toc-text">vue核心原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">12.</span> <span class="toc-text">vue的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E6%8C%87%E4%BB%A4%E4%B8%8E%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">13.</span> <span class="toc-text">vue指令与过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E5%90%AC%E5%99%A8"><span class="toc-number">14.</span> <span class="toc-text">监听器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="toc-number">14.1.</span> <span class="toc-text">计算属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-cli%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">15.</span> <span class="toc-text">Vue-cli的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue%E7%BB%84%E4%BB%B6"><span class="toc-number">15.1.</span> <span class="toc-text">Vue组件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VueComponent"><span class="toc-number">16.</span> <span class="toc-text">VueComponent</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/01/vue2%E7%9A%84%E5%AD%A6%E4%B9%A0/" title="vue2的学习">vue2的学习</a><time datetime="2023-02-01T15:20:47.000Z" title="发表于 2023-02-01 23:20:47">2023-02-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/01/31/js%E8%BF%9B%E9%98%B6/" title="js进阶(ES6新语法)">js进阶(ES6新语法)</a><time datetime="2023-01-31T15:07:13.000Z" title="发表于 2023-01-31 23:07:13">2023-01-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/01/29/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="前端学习笔记">前端学习笔记</a><time datetime="2023-01-29T03:05:31.000Z" title="发表于 2023-01-29 11:05:31">2023-01-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Xiaoye</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
