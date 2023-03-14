@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2023/03/14/%E8%BF%90%E7%BB%B4/"/>
+      <url>/2023/03/14/%E8%BF%90%E7%BB%B4/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>运维学习笔记</title>
+      <link href="/2023/03/14/%E8%BF%90%E7%BB%B4%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2023/03/14/%E8%BF%90%E7%BB%B4%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h3 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h3><p>普通ip，分为两段</p><hr><p>网络地址+主机地址</p><p>如192.168.0.135</p><p>192.168.0这部分叫做局域网段</p><p>135叫做主机地址</p><hr><p>每一个机器，会有三种ip形式</p><ul><li>127.0.0.1 回环地址（特殊ip，系统自带）做服务器测试使用的</li><li>0.0.0.0</li><li>网卡地址（用户自己分配的ip）</li></ul><hr><p>特殊ip：0.0.0.0（系统自带，会绑定所有的网卡） 作用：当程序部署在这个地址上，即表示，绑定机器所有的网卡，包括127.0.0.1以及其他的ip</p><hr><p>想让程序让其他人访问到，必须要绑定网卡</p><p>非网卡的绑定就访问不了，比如127.0.0.1</p><ul><li><p>ip地址是会变的。</p></li><li><p>任何连上互联网的电脑都可以通过一个公共ip访问到</p></li></ul><p>公网ip：所有人都可以访问的</p><p>内网ip：</p><p>内网：一般情况下，内网就是指的局域网（LAN），公网就是指的广域网（WAN）</p><h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>域名的作用就是绑定难以记住的ip地址，让用户好记。</p><p>DNS就是域名映射系统</p><p>CDN服务器加速–让访问者可以就近访问到服务器</p><hr><p>路由器–网络地址映射–NAT（网络地址转换）</p><p>局域网–&gt;公网</p><hr><p>NAT可以让虚拟机也可以上外网，NAT是一个地址映射表，作用呢，就是比桥接可以分配更多的局域网ip，桥接是和宿主用的同一个ip，而使用NAT创建的虚拟机使用的是宿主机又分配的ip地址，其他电脑是访问不了这个虚拟机的。</p><hr><p>浏览器直接访问taobao.com与<a href="http://www.taobao.com的区别/">www.taobao.com的区别</a></p><blockquote><p>这个是运维配置的域名重写机制，淘宝服务器自动判断，用户只要访问的是taobao.com</p><p>自动url重写机制，nginx部署的功能</p></blockquote><p>域名是从右往左读。</p><p>顶级域名用于告诉用户该域名提供的服务类型</p><p>顶级域名就是最后一个小数点.结尾的字母，如.net,.com</p><p>用户花钱买的域名就叫二级域名</p><hr><p>域名可以是在公网中解析到的</p><p>也可以是企业内部自己用的</p><h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p>端口就是ip:port 。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">80端口是和443绑定在一起的。80是http端口,443是https端口</span><br><span class="line">https://wwww.taobao.com:443</span><br><span class="line">停止443端口，即表示停止端口服务</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">判断网站是否存活</span><br><span class="line">1.看他的ip是否存活。ping一下</span><br><span class="line">2.判断出是它的端口挂了</span><br></pre></td></tr></table></figure><h3 id="Linux分区"><a href="#Linux分区" class="headerlink" title="Linux分区"></a>Linux分区</h3><ul><li>&#x2F;boot，启动分区，系统的引导启动程序，必须放在这里</li></ul><h3 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h3><p>window不区分大小写，linux是严格区分大小写的</p><p>linux是不关心后缀的，linux的文件属性是依靠权限位决定的，和文件名无关。</p><p>linux的文件名就是个普通的字符串而已，一堆英文字母</p><p>看到权限位中第一个是-，就是文件，如果是d开头的，就是目录</p><p>压缩文件也是普通文件显示</p><ul><li>echo显示一段话或者输出一段字符串</li><li>touch    创建文件</li></ul><p>linux上一切皆文件</p><ul><li>systemctl linux服务管理命令 status 状态  network 网络</li><li>&#x2F;是linux的根目录</li><li>sda是linux上的第一块硬盘</li></ul><p>linux是否是可执行文件是通过文件属性决定的</p><p>linux上硬盘想要用有3步：</p><ol><li>有物理磁盘，分区</li><li>在linux上有一个目录，和这个分区绑定</li><li>访问这个目录，即访问了这个磁盘的数据</li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue2的学习</title>
       <link href="/2023/02/01/vue2%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
       <url>/2023/02/01/vue2%E7%9A%84%E5%AD%A6%E4%B9%A0/</url>
