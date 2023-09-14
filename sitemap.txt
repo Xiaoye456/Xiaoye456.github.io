@@ -1,3 +1,4 @@
+http://example.com/categories/index.html
 http://example.com/categories/%E7%A7%8B%E6%8B%9B%E8%BF%9B%E7%A8%8Bemo%E4%BA%86.html
 http://example.com/2023/09/14/%E6%9C%80%E8%BF%91%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0/
 http://example.com/2023/09/14/K8S/
@@ -26,5 +27,4 @@ http://example.com/2023/01/29/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%A
 http://example.com/links/index.html
 http://example.com/2023/01/31/js%E8%BF%9B%E9%98%B6/
 http://example.com/tags/index.html
-http://example.com/categories/index.html
 http://example.com/
