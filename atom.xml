@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-09-30T07:04:27.435Z</updated>
+  <updated>2023-09-30T07:45:31.219Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>pytest学习</title>
     <link href="http://example.com/2023/09/30/Pytest%E5%AD%A6%E4%B9%A0/"/>
     <id>http://example.com/2023/09/30/Pytest%E5%AD%A6%E4%B9%A0/</id>
     <published>2023-09-30T07:04:27.419Z</published>
-    <updated>2023-09-30T07:04:27.435Z</updated>
+    <updated>2023-09-30T07:45:31.219Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Pytest"><a href="#Pytest" class="headerlink" title="Pytest"></a><strong>Pytest</strong></h1><p> 在pytest框架中，有如下约束：<br> 所有的单测文件名都需要满足test_*.py或者 *test_.py</p><blockquote><p>在单测文件中，测试类以Test开头，并且不能带有 init 方法(注意：定义class时，需要以T开头，不然pytest是不会去运行该class的)<br>在单测类中，可以包含一个或多个test_开头的函数。<br>此时，在执行pytest命令时，会自动从当前目录及子目录中寻找符合上述约束的测试函数来执行。</p></blockquote><h3 id="Pytest-Exit-Code-含义清单"><a href="#Pytest-Exit-Code-含义清单" class="headerlink" title="Pytest Exit Code 含义清单"></a>Pytest Exit Code 含义清单</h3><ul><li>Exit code 0 所有用例执行完毕，全部通过</li><li>Exit code 1 所有用例执行完毕，存在Failed的测试用例</li><li>Exit code 2 用户中断了测试的执行</li><li>Exit code 3 测试执行过程发生了内部错误</li><li>Exit code 4 pytest 命令行使用错误</li><li>Exit code 5 未采集到可用测试用例文件</li></ul><h2 id="Pytest的setup和teardown函数"><a href="#Pytest的setup和teardown函数" class="headerlink" title="Pytest的setup和teardown函数"></a>Pytest的setup和teardown函数</h2><ul><li>1.setup和teardown主要分为：模块级,类级，功能级，函数级。</li><li>2.存在于测试类内部</li></ul><h3 id="函数级别setup-／teardown"><a href="#函数级别setup-／teardown" class="headerlink" title="函数级别setup()／teardown()"></a>函数级别setup()／teardown()</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">运行于测试方法的始末，即:运行一次测试函数会运行一次setup和teardown</span><br></pre></td></tr></table></figure><h3 id="类级别setup-class-teardown-class"><a href="#类级别setup-class-teardown-class" class="headerlink" title="类级别setup_class()&#x2F;teardown_class()"></a>类级别setup_class()&#x2F;teardown_class()</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">运行于测试类的始末，即:在一个测试内只运行一次setup_class和teardown_class，不关心测试类内有多少个测试函数。</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -33,6 +33,10 @@
     
     
     
+    <category term="学习篇" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0%E7%AF%87/"/>
+    
+    
+    <category term="学习篇" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0%E7%AF%87/"/>
     
   </entry>
   
